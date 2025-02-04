@@ -1,14 +1,16 @@
 {
-    "name": "hello-wrold",
-    "version": "1.0.0",
-    "description": "Hello-World",
-    "main": "/src/index.js",
-    "scripts": {
-     "start": "node src/index.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-     "express": "^4.18.2"
-    }
+    "version": 2,
+    "builds": [
+     {
+      "src": "src/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+     }
+    ],
+    "routes": [
+     {
+      "src": "/(.*)",
+      "dest": "src/index.js"
+     }
+    ]
    }
